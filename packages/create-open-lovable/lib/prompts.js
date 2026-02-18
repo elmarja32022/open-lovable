@@ -154,6 +154,7 @@ export function getEnvPrompts(provider) {
       { name: 'Anthropic (Claude)', value: 'anthropic' },
       { name: 'OpenAI (GPT)', value: 'openai' },
       { name: 'Google (Gemini)', value: 'gemini' },
+      { name: 'OpenRouter', value: 'openrouter' },
       { name: 'Groq', value: 'groq' }
     ]
   });
@@ -177,6 +178,13 @@ export function getEnvPrompts(provider) {
     name: 'geminiApiKey',
     message: 'Gemini API key:',
     when: (answers) => answers.aiProviders && answers.aiProviders.includes('gemini')
+  });
+
+  prompts.push({
+    type: 'input',
+    name: 'openrouterApiKey',
+    message: 'OpenRouter API key:',
+    when: (answers) => answers.aiProviders && answers.aiProviders.includes('openrouter')
   });
 
   prompts.push({

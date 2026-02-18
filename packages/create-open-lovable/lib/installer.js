@@ -182,6 +182,12 @@ async function createEnvFile(projectPath, sandbox, answers) {
     envContent += `# GEMINI_API_KEY=your_gemini_api_key_here\n`;
   }
   
+  if (answers.openrouterApiKey) {
+    envContent += `OPENROUTER_API_KEY=${answers.openrouterApiKey}\n`;
+  } else {
+    envContent += `# OPENROUTER_API_KEY=your_openrouter_api_key_here\n`;
+  }
+
   if (answers.groqApiKey) {
     envContent += `GROQ_API_KEY=${answers.groqApiKey}\n`;
   } else {
@@ -222,6 +228,8 @@ async function createEnvExample(projectPath, sandbox) {
   envContent += `OPENAI_API_KEY=your_openai_api_key_here\n\n`;
   envContent += `# Get yours at https://aistudio.google.com/app/apikey\n`;
   envContent += `GEMINI_API_KEY=your_gemini_api_key_here\n\n`;
+  envContent += `# Get yours at https://openrouter.ai/keys\n`;
+  envContent += `OPENROUTER_API_KEY=your_openrouter_api_key_here\n\n`;
   envContent += `# Get yours at https://console.groq.com\n`;
   envContent += `GROQ_API_KEY=your_groq_api_key_here\n`;
   
