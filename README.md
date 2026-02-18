@@ -27,6 +27,7 @@ FIRECRAWL_API_KEY=your_firecrawl_api_key    # https://firecrawl.dev
 GEMINI_API_KEY=your_gemini_api_key        # https://aistudio.google.com/app/apikey
 ANTHROPIC_API_KEY=your_anthropic_api_key  # https://console.anthropic.com
 OPENAI_API_KEY=your_openai_api_key        # https://platform.openai.com
+OPENROUTER_API_KEY=your_openrouter_api_key # https://openrouter.ai/keys
 GROQ_API_KEY=your_groq_api_key            # https://console.groq.com
 
 # =================================================================

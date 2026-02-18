@@ -51,10 +51,11 @@ export const appConfig = {
   // AI Model Configuration
   ai: {
     // Default AI model
-    defaultModel: 'google/gemini-3-pro-preview',
+    defaultModel: 'openrouter/qwen/qwen-2.5-coder-32b-instruct:free',
     
     // Available models
     availableModels: [
+      'openrouter/qwen/qwen-2.5-coder-32b-instruct:free',
       'openai/gpt-5',
       'moonshotai/kimi-k2-instruct-0905',
       'anthropic/claude-sonnet-4-20250514',
@@ -63,6 +64,7 @@ export const appConfig = {
     
     // Model display names
     modelDisplayNames: {
+      'openrouter/qwen/qwen-2.5-coder-32b-instruct:free': 'Qwen 2.5 Coder 32B (Free, OpenRouter)',
       'openai/gpt-5': 'GPT-5',
       'moonshotai/kimi-k2-instruct-0905': 'Kimi K2 (Groq)',
       'anthropic/claude-sonnet-4-20250514': 'Sonnet 4',

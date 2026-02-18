@@ -26,6 +26,11 @@ const openai = createOpenAI({
   baseURL: isUsingAIGateway ? aiGatewayBaseURL : process.env.OPENAI_BASE_URL,
 });
 
+const openrouter = createOpenAI({
+  apiKey: process.env.AI_GATEWAY_API_KEY ?? process.env.OPENROUTER_API_KEY,
+  baseURL: isUsingAIGateway ? aiGatewayBaseURL : (process.env.OPENROUTER_BASE_URL || 'https://openrouter.ai/api/v1'),
+});
+
 const googleGenerativeAI = createGoogleGenerativeAI({
   apiKey: process.env.AI_GATEWAY_API_KEY ?? process.env.GEMINI_API_KEY,
   baseURL: isUsingAIGateway ? aiGatewayBaseURL : undefined,
@@ -115,6 +120,8 @@ export async function POST(request: NextRequest) {
       }
     } else if (model.startsWith('google/')) {
       aiModel = googleGenerativeAI(model.replace('google/', ''));
+    } else if (model.startsWith('openrouter/')) {
+      aiModel = openrouter(model.replace('openrouter/', ''));
     } else {
       // Default to groq if model format is unclear
       aiModel = groq(model);
