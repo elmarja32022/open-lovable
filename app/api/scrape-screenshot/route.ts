@@ -13,10 +13,16 @@ export async function POST(req: NextRequest) {
     const apiKey = process.env.FIRECRAWL_API_KEY;
     
     if (!apiKey) {
-      console.error("FIRECRAWL_API_KEY not configured");
-      return NextResponse.json({ 
-        error: 'Firecrawl API key not configured' 
-      }, { status: 500 });
+      console.log('[scrape-screenshot] FIRECRAWL_API_KEY missing, using free thumbnail fallback');
+      const screenshot = `https://image.thum.io/get/width/1280/noanimate/${url}`;
+      return NextResponse.json({
+        success: true,
+        screenshot,
+        metadata: {
+          scraper: 'thumio-fallback',
+          timestamp: new Date().toISOString()
+        }
+      });
     }
     
     const app = new FirecrawlApp({ apiKey });
