@@ -63,6 +63,37 @@ pnpm dev  # or npm run dev / yarn dev
 
 Open [http://localhost:3000](http://localhost:3000)
 
+
+## Production readiness checklist
+
+Use this checklist before deploying to production:
+
+- Configure `NEXT_PUBLIC_APP_URL` to your real domain (for internal API callbacks).
+- Prefer Vercel PAT authentication (`VERCEL_TOKEN`, `VERCEL_TEAM_ID`, `VERCEL_PROJECT_ID`) for non-local environments.
+- Set at least one model provider key (`AI_GATEWAY_API_KEY` recommended).
+- Keep server-only secrets private (`SUPABASE_SERVICE_ROLE_KEY`, provider API keys).
+- Enable monitoring and logs in your hosting platform.
+
+## Supabase (free database) integration
+
+Arabic guide: `docs/production-supabase-ar.md`
+
+
+You can connect generated projects to Supabase free tier quickly:
+
+1. Create a project at [supabase.com](https://supabase.com).
+2. Add these environment variables:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-ref.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+```
+
+3. In generated apps, use `@supabase/supabase-js` on the client with `NEXT_PUBLIC_*` keys.
+4. Use `SUPABASE_SERVICE_ROLE_KEY` only in server routes/actions.
+5. Enable Row Level Security (RLS) and create explicit policies before production traffic.
+
 ## License
 
 MIT
