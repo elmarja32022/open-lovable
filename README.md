@@ -19,7 +19,7 @@ pnpm install  # or npm install / yarn install
 # =================================================================
 # REQUIRED
 # =================================================================
-FIRECRAWL_API_KEY=your_firecrawl_api_key    # https://firecrawl.dev
+FIRECRAWL_API_KEY=your_firecrawl_api_key    # Optional: enables Firecrawl premium scraping. If omitted, app uses free Jina/DuckDuckGo fallbacks
 
 # =================================================================
 # AI PROVIDER - Choose your LLM
