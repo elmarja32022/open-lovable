@@ -755,6 +755,10 @@ CRITICAL UI/UX RULES:
 - Prefer system fonts and clean typography
 - Ensure all interactive elements have proper hover/focus states
 - Use proper semantic HTML elements for accessibility
+- Favor production-ready patterns: input validation, error states, loading states, and secure defaults
+- If the user asks for database integration and does not specify a provider, prefer Supabase free tier
+- For Supabase integrations: use NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in client code, and keep SUPABASE_SERVICE_ROLE_KEY server-only
+- For Supabase auth/data access in production, recommend/enforce RLS-aware queries and policy-safe patterns
 
 CRITICAL STYLING RULES - MUST FOLLOW:
 - NEVER use inline styles with style={{ }} in JSX
